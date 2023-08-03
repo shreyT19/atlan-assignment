@@ -1,0 +1,211 @@
+{
+  "customers": [
+    {
+      "customer_id": 1,
+      "first_name": "Joseph",
+      "last_Name": "Perkins",
+      "age": 31,
+      "country": "India"
+    },
+    {
+      "customer_id": 2,
+      "first_name": "Jennifer",
+      "last_Name": "Alvarez",
+      "age": 21,
+      "country": "USA"
+    },
+    {
+      "customer_id": 3,
+      "first_name": "Roger",
+      "last_Name": "Black",
+      "age": 21,
+      "country": "India"
+    },
+    {
+      "customer_id": 4,
+      "first_name": "Steven",
+      "last_Name": "Evans",
+      "age": 32,
+      "country": "UK"
+    },
+    {
+      "customer_id": 5,
+      "first_name": "Judy",
+      "last_Name": "Morrison",
+      "age": 25,
+      "country": "USA"
+    }
+  ],
+  "orders": [
+    {
+      "order_id": 1,
+      "amount": 400,
+      "item": "keyboard",
+      "customer_id": 4
+    },
+    {
+      "order_id": 2,
+      "amount": 300,
+      "item": "monitor",
+      "customer_id": 4
+    },
+    {
+      "order_id": 3,
+      "amount": 1200,
+      "item": "mouse",
+      "customer_id": 3
+    },
+    {
+      "order_id": 4,
+      "amount": 400,
+      "item": "monitor",
+      "customer_id": 1
+    },
+    {
+      "order_id": 5,
+      "amount": 250,
+      "item": "mousepad",
+      "customer_id": 2
+    }
+  ],
+  "queries": [
+    {
+      "Query 1": "SELECT Customers.first_name,Orders.item,Orders.amount,Customers.country FROM Customers JOIN Orders on Customers.customer_id=Orders.order_id;",
+      "Query 2": "SELECT * FROM Orders;",
+      "Query 3": "SELECT * FROM Customers;"
+    }
+  ]
+  ,
+  "commands": [
+    {
+      "command": "SELECT Customers.first_name,Orders.item,Orders.amount,Customers.country FROM Customers JOIN Orders on Customers.customer_id=Orders.order_id;",
+      "output": [
+        {
+          "first_name": "Joseph",
+          "item": "monitor",
+          "amount": 400,
+          "country": "India"
+        },
+        {
+          "first_name": "Jennifer",
+          "item": "mousepad",
+          "amount": 250,
+          "country": "USA"
+        },
+        {
+          "first_name": "Roger",
+          "item": "mouse",
+          "amount": 1200,
+          "country": "India"
+        },
+        {
+          "first_name": "Steven",
+          "item": "keyboard",
+          "amount": 400,
+          "country": "UK"
+        },
+        {
+          "first_name": "Steven",
+          "item": "monitor",
+          "amount": 300,
+          "country": "UK"
+        }
+      ]
+    },
+    {
+      "command": "SELECT * FROM Customers;",
+      "output": [
+        {
+          "customer_id": 1,
+          "first_name": "Joseph",
+          "last_Name": "Perkins",
+          "age": 31,
+          "country": "India"
+        },
+        {
+          "customer_id": 2,
+          "first_name": "Jennifer",
+          "last_Name": "Alvarez",
+          "age": 21,
+          "country": "USA"
+        },
+        {
+          "customer_id": 3,
+          "first_name": "Roger",
+          "last_Name": "Black",
+          "age": 21,
+          "country": "India"
+        },
+        {
+          "customer_id": 4,
+          "first_name": "Steven",
+          "last_Name": "Evans",
+          "age": 32,
+          "country": "UK"
+        },
+        {
+          "customer_id": 5,
+          "first_name": "Judy",
+          "last_Name": "Morrison",
+          "age": 25,
+          "country": "USA"
+        }
+      ]
+    },
+    {
+      "command": "SELECT * FROM Orders;",
+      "output": [
+        {
+          "order_id": 1,
+          "amount": 400,
+          "item": "keyboard",
+          "customer_id": 4
+        },
+        {
+          "order_id": 2,
+          "amount": 300,
+          "item": "monitor",
+          "customer_id": 4
+        },
+        {
+          "order_id": 3,
+          "amount": 1200,
+          "item": "mouse",
+          "customer_id": 3
+        },
+        {
+          "order_id": 4,
+          "amount": 400,
+          "item": "monitor",
+          "customer_id": 1
+        },
+        {
+          "order_id": 5,
+          "amount": 250,
+          "item": "mousepad",
+          "customer_id": 2
+        }
+      ]
+    },
+    {
+      "command": "SELECT * FROM Customers WHERE country='India';",
+      "output": [
+        {
+          "customer_id": 1,
+          "first_name": "Joseph",
+          "last_Name": "Perkins",
+          "age": 31,
+          "country": "India"
+        },
+        {
+          "customer_id": 3,
+          "first_name": "Roger",
+          "last_Name": "Black",
+          "age": 21,
+          "country": "India"
+        }
+      ]
+    }
+  ]
+}
+

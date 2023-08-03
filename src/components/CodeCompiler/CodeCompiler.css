@@ -1,0 +1,54 @@
+.questionDataTable {
+  display: flex;
+  flex: 1;
+  gap: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 50px;
+  justify-content: center;
+}
+
+textarea {
+  padding: 16px;
+  height: 400px;
+  width: 800px;
+  margin-left: 20px;
+  border-radius: 5px;
+  line-height: 22.5px;
+  border: none;
+  background-color: rgb(222, 222, 222);
+  color: purple;
+  resize: none;
+  font-size: 16px;
+}
+textarea:focus {
+  outline: none;
+}
+.flex {
+  padding-block: 20px;
+  display: flex;
+  gap: 10px;
+
+  flex: 1;
+}
+.outputSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+  padding-left: 20px;
+}
+.output {
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+}
+.head {
+  padding: 20px;
+}
+
+.code{
+    display: flex;
+    flex-direction: column ;
+    gap:10px;
+}
