@@ -7,9 +7,9 @@ import { AppProvider } from "./context/Context.jsx";
 import { StrictMode } from "react";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  // <StrictMode>
+  <StrictMode>
     <AppProvider>
       <App />
     </AppProvider>
-  // </StrictMode>
+   </StrictMode>
 );

@@ -1,40 +1,38 @@
-.toolbar{
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 0;
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
 }
-select{
-    
-    border-radius: 5px;
-    border: none;
-    padding: 8px 16px;
-    background-color: rgb(222, 222, 222);
-    /* color: white; */
-    font-weight: bold;
+select {
+  border-radius: 5px;
+  border: none;
+  padding: 8px 16px;
+  background-color: rgb(222, 222, 222);
+  font-weight: bold;
 }
-button{
-    padding: 8px 16px;
-    border-radius: 5px;
-    border: none;
-    background-color: rgb(0, 0, 0);
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
+button {
+  padding: 8px 16px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
 }
-button:hover{
-    background-color: rgb(0, 0, 0, 0.8);
+button:hover {
+  background-color: rgb(0, 0, 0, 0.8);
 }
-.buttons{
-    display: flex;
-    gap: 10px;
+.buttons {
+  display: flex;
+  gap: 10px;
 }
-.export{
-    display: flex;
-    gap: 5px;
-    align-items: center;
-    justify-self: center;
+.export {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-self: center;
 }
 
-.csv-button{
-    text-decoration: none;
+.csv-button {
+  text-decoration: none;
 }

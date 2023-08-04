@@ -6,8 +6,8 @@ import Toolbar from "../ToolBar/Toolbar";
 import "./CodeCompiler.css";
 //data
 import dummyData from "../../assets/data.json";
-// import customersData from "../../assets/customers.json";
-// import ordersData from "../../assets/orders.json";
+import customersData from "../../assets/customers.json";
+import ordersData from "../../assets/orders.json";
 
 // context api hook for state management
 import { useStateContext } from "../../context/Context";
@@ -51,8 +51,8 @@ const CodeCompiler = () => {
           <div className="flex2">
             <p className="output">Orders</p>
             <Table rows={dummyData?.orders} />
-          </div>
           {/* <Table rows={ordersData} /> */}
+          </div>
         </div>
       </div>
     </div>

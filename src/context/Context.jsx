@@ -19,6 +19,8 @@ export const AppProvider = ({ children }) => {
   // buttonClicked is the boolean value to check if the run sql button is clicked or not
   const [buttonClicked, setButtonClicked] = useState(false);
 
+
+
   useEffect(() => {
     const ans = filteredOutputData(currentQuery);
 
@@ -42,12 +44,19 @@ export const AppProvider = ({ children }) => {
 
   // function to handle the click of the print all queries
   const handlePrintAllQueries = (heading) => {
+    setButtonClicked(false);
     setCurrentQuery(`SELECT * FROM ${heading};`);
   };
 
-  const handlePrintSelectedQuery = (property,heading) => {
+  // function to handle the click of the print selected query
+  const handlePrintSelectedQuery = (property, heading) => {
+    setButtonClicked(false);
     setCurrentQuery(`SELECT ${property} FROM ${heading};`);
-  }
+  };
+
+  //function to add pagination to the table data if it exceeds 5 rows
+
+  
 
   return (
     <StateContext.Provider
@@ -62,7 +71,7 @@ export const AppProvider = ({ children }) => {
         currentOutputQuery,
         setCurrentOutputQuery,
         handlePrintAllQueries,
-        handlePrintSelectedQuery
+        handlePrintSelectedQuery,
       }}
     >
       {children}
