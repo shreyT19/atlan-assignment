@@ -1,0 +1,51 @@
+/* @import url(https://db.onlinewebfonts.com/c/cdc23e6c6a3b86efb41254c747c2989d?family=Euclid+Circular+A); */
+
+.entitySchemaSection {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 20px;
+}
+.layout {
+  font-size: 18px;
+  display: flex;
+  gap: 2.5px;
+}
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+li {
+  list-style-type: none;
+  font-size: 13px;
+  color: grey;
+}
+.arrow {
+  border-color: #ffffff9c;
+  border-bottom: 1px solid grey;
+  border-left: 1px solid grey;
+  height: 18px;
+  width: 8px;
+  display: inline-block;
+  margin-left: 24px;
+  position: relative;
+  top: -3px;
+  font-weight: 100;
+}
+.type {
+  color: #007efa;
+  margin-left: 2px;
+}
+.value {
+  cursor: pointer;
+}
+
+.value:hover {
+  color: black;
+}
+.heading:hover {
+  color: grey;
+}

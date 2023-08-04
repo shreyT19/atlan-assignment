@@ -16,32 +16,38 @@ export const AppProvider = ({ children }) => {
   const [currentOutputQuery, setCurrentOutputQuery] = useState(
     answersData.commands[0].output
   );
-  // showError is the boolean value to check if the error is to be shown or not
-  const [showError, setShowError] = useState(false);
   // buttonClicked is the boolean value to check if the run sql button is clicked or not
   const [buttonClicked, setButtonClicked] = useState(false);
-  // console.log(currentQuery);
 
   useEffect(() => {
     const ans = filteredOutputData(currentQuery);
-    // console.log(ans[0]?.output);
+
     setCurrentOutputQuery(ans[0]?.output);
   }, [currentQuery]);
 
+  // function to handle the click of the run sql button
   const handleClick = () => {
     setButtonClicked(true);
   };
 
+  // function to handle the change of the dropdown
   const handleOptionChange = (e) => {
-    setQuery(e.target.value);
     setButtonClicked(false);
-    // console.log("changing option to ", e.target.value);
-    mockData.queries.map((query) => {
-      // console.log(query[`${e.target.value}`]);
+    setQuery(e.target.value);
 
+    mockData.queries.map((query) => {
       setCurrentQuery(query[`${e.target.value}`]);
     });
   };
+
+  // function to handle the click of the print all queries
+  const handlePrintAllQueries = (heading) => {
+    setCurrentQuery(`SELECT * FROM ${heading};`);
+  };
+
+  const handlePrintSelectedQuery = (property,heading) => {
+    setCurrentQuery(`SELECT ${property} FROM ${heading};`);
+  }
 
   return (
     <StateContext.Provider
@@ -55,6 +61,8 @@ export const AppProvider = ({ children }) => {
         setCurrentQuery,
         currentOutputQuery,
         setCurrentOutputQuery,
+        handlePrintAllQueries,
+        handlePrintSelectedQuery
       }}
     >
       {children}
@@ -62,22 +70,31 @@ export const AppProvider = ({ children }) => {
   );
 };
 
-//custom hook
-
-export const useStateContext = () => useContext(StateContext);
-
 // function to filter the output data from the answersData
 
 export const filteredOutputData = (currentQuery) => {
-//   console.log(currentQuery);
+  //trims the white spaces and new lines from the query
+  const singleLineQuery = currentQuery?.replace(/\n/g, "");
+  const trimmedQuery = singleLineQuery.replace(/\s+/g, "");
+
   const ans = mockData?.commands?.filter((query) => {
+    const singleQuery = query?.command?.replace(/\n/g, "");
+    const trimmedSingleQuery = singleQuery.replace(/\s+/g, "");
     if (
-      query?.command?.toLocaleLowerCase().trim() ===
-      currentQuery?.toLocaleLowerCase().trim()
+      trimmedSingleQuery.toLocaleLowerCase().trim() ===
+      trimmedQuery?.toLocaleLowerCase().trim()
     ) {
       return query?.output;
     }
   });
 
+  if (ans.length === 0) {
+    return [
+      { command: "ERROR", output: [{ Error: "Please check your query" }] },
+    ];
+  }
   return ans;
 };
+
+//custom hook
+export const useStateContext = () => useContext(StateContext);

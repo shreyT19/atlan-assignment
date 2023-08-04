@@ -1,7 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+
+@import url(https://db.onlinewebfonts.com/c/cdc23e6c6a3b86efb41254c747c2989d?family=Euclid+Circular+A);
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Euclid Circular A';
 }

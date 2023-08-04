@@ -3,35 +3,35 @@
     {
       "customer_id": 1,
       "first_name": "Joseph",
-      "last_Name": "Perkins",
+      "last_name": "Perkins",
       "age": 31,
       "country": "India"
     },
     {
       "customer_id": 2,
       "first_name": "Jennifer",
-      "last_Name": "Alvarez",
+      "last_name": "Alvarez",
       "age": 21,
       "country": "USA"
     },
     {
       "customer_id": 3,
       "first_name": "Roger",
-      "last_Name": "Black",
+      "last_name": "Black",
       "age": 21,
       "country": "India"
     },
     {
       "customer_id": 4,
       "first_name": "Steven",
-      "last_Name": "Evans",
+      "last_name": "Evans",
       "age": 32,
       "country": "UK"
     },
     {
       "customer_id": 5,
       "first_name": "Judy",
-      "last_Name": "Morrison",
+      "last_name": "Morrison",
       "age": 25,
       "country": "USA"
     }
@@ -70,9 +70,9 @@
   ],
   "queries": [
     {
-      "Query 1": "SELECT Customers.first_name,Orders.item,Orders.amount,Customers.country FROM Customers JOIN Orders on Customers.customer_id=Orders.order_id;",
+      "Query 1": "SELECT * FROM Customers;",
       "Query 2": "SELECT * FROM Orders;",
-      "Query 3": "SELECT * FROM Customers;"
+      "Query 3": "SELECT Customers.first_name,Orders.item,Orders.amount,Customers.country FROM Customers JOIN Orders on Customers.customer_id=Orders.order_id;"
     }
   ]
   ,
@@ -118,35 +118,35 @@
         {
           "customer_id": 1,
           "first_name": "Joseph",
-          "last_Name": "Perkins",
+          "last_name": "Perkins",
           "age": 31,
           "country": "India"
         },
         {
           "customer_id": 2,
           "first_name": "Jennifer",
-          "last_Name": "Alvarez",
+          "last_name": "Alvarez",
           "age": 21,
           "country": "USA"
         },
         {
           "customer_id": 3,
           "first_name": "Roger",
-          "last_Name": "Black",
+          "last_name": "Black",
           "age": 21,
           "country": "India"
         },
         {
           "customer_id": 4,
           "first_name": "Steven",
-          "last_Name": "Evans",
+          "last_name": "Evans",
           "age": 32,
           "country": "UK"
         },
         {
           "customer_id": 5,
           "first_name": "Judy",
-          "last_Name": "Morrison",
+          "last_name": "Morrison",
           "age": 25,
           "country": "USA"
         }
@@ -193,18 +193,21 @@
         {
           "customer_id": 1,
           "first_name": "Joseph",
-          "last_Name": "Perkins",
+          "last_name": "Perkins",
           "age": 31,
           "country": "India"
         },
         {
           "customer_id": 3,
           "first_name": "Roger",
-          "last_Name": "Black",
+          "last_name": "Black",
           "age": 21,
           "country": "India"
         }
       ]
+    },{
+      "command":"ERROR",
+      "output":"Error: Please check your query"
     }
   ]
 }

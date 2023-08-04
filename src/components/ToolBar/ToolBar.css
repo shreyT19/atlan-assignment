@@ -4,7 +4,7 @@
     padding: 8px 0;
 }
 select{
-    margin-left: 20px;
+    
     border-radius: 5px;
     border: none;
     padding: 8px 16px;
@@ -23,4 +23,18 @@ button{
 }
 button:hover{
     background-color: rgb(0, 0, 0, 0.8);
+}
+.buttons{
+    display: flex;
+    gap: 10px;
+}
+.export{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-self: center;
+}
+
+.csv-button{
+    text-decoration: none;
 }
