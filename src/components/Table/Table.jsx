@@ -6,12 +6,10 @@ import { useStateContext } from "../../context/Context";
 import Pagination from "../Pagination/Pagination";
 
 const Table = ({ rows }) => {
-  
+  // to keep track of the current page
   const [currentPage, setCurrentPage] = useState(1);
-  
-  const [rowsPerPage, setRowsPerPage] = useState(3);
 
-  
+  const rowsPerPage = 5;
 
   const lastPostIndex = currentPage * rowsPerPage;
   const firstPostIndex = lastPostIndex - rowsPerPage;
@@ -23,6 +21,7 @@ const Table = ({ rows }) => {
         <thead>
           <tr className="headRow">
             {Object?.keys(currentPosts[0])?.map((keyName, index) => {
+              // {Object?.keys(rows[0])?.map((keyName, index) => {
               return (
                 <th className="row" key={index}>
                   {keyName}
@@ -33,6 +32,7 @@ const Table = ({ rows }) => {
         </thead>
         <tbody>
           {currentPosts?.map((row, index) => {
+            // {rows?.map((row, index) => {
             return (
               <tr key={index}>
                 {Object?.values(row)?.map((val, index) => {

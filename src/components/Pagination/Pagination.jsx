@@ -9,6 +9,7 @@ const Pagination = ({
   rowsPerPage,
 }) => {
   
+  
 
   let pages = [];
   const maximumPages = Math.ceil(totalRows / rowsPerPage);

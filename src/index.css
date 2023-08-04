@@ -7,3 +7,8 @@
   box-sizing: border-box;
   font-family: 'Euclid Circular A';
 }
+
+footer{
+  padding-top: 40px;
+  border-top: 1px solid grey;
+}

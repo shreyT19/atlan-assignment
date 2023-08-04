@@ -72,6 +72,7 @@ export const AppProvider = ({ children }) => {
         setCurrentOutputQuery,
         handlePrintAllQueries,
         handlePrintSelectedQuery,
+
       }}
     >
       {children}

@@ -34,6 +34,55 @@
       "last_name": "Morrison",
       "age": 25,
       "country": "USA"
+    },
+    {
+      "customer_id": 6,
+      "first_name": "Shreyansh",
+      "last_name": "Tripathy",
+      "age": 20,
+      "country": "India"
+    },
+    {
+      "customer_id": 7,
+      "first_name": "Nikhil",
+      "last_name": "Panigrahi",
+      "age": 26,
+      "country": "USA"
+    },
+    {
+      "customer_id": 8,
+      "first_name": "Nitish",
+      "last_name": "Raj",
+      "age": 22,
+      "country": "India"
+    },
+    {
+      "customer_id": 9,
+      "first_name": "Aryan",
+      "last_name": "Yadav",
+      "age": 20,
+      "country": "USA"
+    },
+    {
+      "customer_id": 10,
+      "first_name": "Dheeraj",
+      "last_name": "Adhikari",
+      "age": 23,
+      "country": "India"
+    },
+    {
+      "customer_id": 11,
+      "first_name": "Preet",
+      "last_name": "Sharma",
+      "age": 21,
+      "country": "Canada"
+    },
+    {
+      "customer_id": 12,
+      "first_name": "Akhil",
+      "last_name": "Singh",
+      "age": 21,
+      "country": "Dubai"
     }
   ],
   "orders": [
@@ -66,16 +115,28 @@
       "amount": 250,
       "item": "mousepad",
       "customer_id": 2
+    },
+    {
+      "order_id": 6,
+      "amount": 350,
+      "item": "headphones",
+      "customer_id": 7
+    },
+    {
+      "order_id": 8,
+      "amount": 350,
+      "item": "speaker",
+      "customer_id": 10
     }
   ],
   "queries": [
     {
       "Query 1": "SELECT * FROM Customers;",
       "Query 2": "SELECT * FROM Orders;",
-      "Query 3": "SELECT Customers.first_name,Orders.item,Orders.amount,Customers.country FROM Customers JOIN Orders on Customers.customer_id=Orders.order_id;"
+      "Query 3": "SELECT Customers.first_name,Orders.item,Orders.amount,Customers.country FROM Customers JOIN Orders on Customers.customer_id=Orders.order_id;",
+      "Query 4": "SELECT * FROM Customers WHERE country='India';"
     }
-  ]
-  ,
+  ],
   "commands": [
     {
       "command": "SELECT Customers.first_name,Orders.item,Orders.amount,Customers.country FROM Customers JOIN Orders on Customers.customer_id=Orders.order_id;",
@@ -149,6 +210,99 @@
           "last_name": "Morrison",
           "age": 25,
           "country": "USA"
+        },
+        {
+          "customer_id": 6,
+          "first_name": "Shreyansh",
+          "last_name": "Tripathy",
+          "age": 20,
+          "country": "India"
+        },
+        {
+          "customer_id": 7,
+          "first_name": "Nikhil",
+          "last_name": "Panigrahi",
+          "age": 26,
+          "country": "USA"
+        },
+        {
+          "customer_id": 8,
+          "first_name": "Nitish",
+          "last_name": "Raj",
+          "age": 22,
+          "country": "India"
+        },
+        {
+          "customer_id": 9,
+          "first_name": "Aryan",
+          "last_name": "Yadav",
+          "age": 20,
+          "country": "USA"
+        },
+        {
+          "customer_id": 10,
+          "first_name": "Dheeraj",
+          "last_name": "Adhikari",
+          "age": 23,
+          "country": "India"
+        },
+        {
+          "customer_id": 11,
+          "first_name": "Preet",
+          "last_name": "Sharma",
+          "age": 21,
+          "country": "Canada"
+        },
+        {
+          "customer_id": 12,
+          "first_name": "Akhil",
+          "last_name": "Singh",
+          "age": 21,
+          "country": "Dubai"
+        }
+      ],
+      "orders": [
+        {
+          "order_id": 1,
+          "amount": 400,
+          "item": "keyboard",
+          "customer_id": 4
+        },
+        {
+          "order_id": 2,
+          "amount": 300,
+          "item": "monitor",
+          "customer_id": 4
+        },
+        {
+          "order_id": 3,
+          "amount": 1200,
+          "item": "mouse",
+          "customer_id": 3
+        },
+        {
+          "order_id": 4,
+          "amount": 400,
+          "item": "monitor",
+          "customer_id": 1
+        },
+        {
+          "order_id": 5,
+          "amount": 250,
+          "item": "mousepad",
+          "customer_id": 2
+        },
+        {
+          "order_id": 6,
+          "amount": 350,
+          "item": "headphones",
+          "customer_id": 7
+        },
+        {
+          "order_id": 8,
+          "amount": 350,
+          "item": "speaker",
+          "customer_id": 10
         }
       ]
     },
@@ -184,6 +338,18 @@
           "amount": 250,
           "item": "mousepad",
           "customer_id": 2
+        },
+        {
+          "order_id": 6,
+          "amount": 350,
+          "item": "headphones",
+          "customer_id": 7
+        },
+        {
+          "order_id": 8,
+          "amount": 350,
+          "item": "speaker",
+          "customer_id": 10
         }
       ]
     },
@@ -203,12 +369,33 @@
           "last_name": "Black",
           "age": 21,
           "country": "India"
+        },
+        {
+          "customer_id": 6,
+          "first_name": "Shreyansh",
+          "last_name": "Tripathy",
+          "age": 20,
+          "country": "India"
+        },
+        {
+          "customer_id": 9,
+          "first_name": "Aryan",
+          "last_name": "Yadav",
+          "age": 20,
+          "country": "USA"
+        },
+        {
+          "customer_id": 10,
+          "first_name": "Dheeraj",
+          "last_name": "Adhikari",
+          "age": 23,
+          "country": "India"
         }
       ]
-    },{
-      "command":"ERROR",
-      "output":"Error: Please check your query"
+    },
+    {
+      "command": "ERROR",
+      "output": "Error: Please check your query"
     }
   ]
 }
-

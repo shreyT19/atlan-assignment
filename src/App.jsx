@@ -1,12 +1,11 @@
 import CodeCompiler from "./components/CodeCompiler/CodeCompiler";
 function App() {
-
-
   return (
     <>
-      <CodeCompiler/>
+      <CodeCompiler />
+      <footer></footer>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

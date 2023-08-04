@@ -6,7 +6,7 @@ import { CSVLink } from "react-csv";
 import {BiExport} from 'react-icons/bi'
 
 const Toolbar = () => {
-  const { handleClick,query,setQuery,handleOptionChange,currentOutputQuery } = useStateContext();
+  const { handleClick,query,handleOptionChange,currentOutputQuery,buttonClicked } = useStateContext();
   const csvHeaders = Object.keys(currentOutputQuery[0]);
   const csvData = currentOutputQuery?.map((row)=>Object.values(row));
 
@@ -14,15 +14,15 @@ const Toolbar = () => {
   return (
     <div className="toolbar">
       <Dropdown
-        options={["Query 1", "Query 2", "Query 3"]}
+        options={["Query 1", "Query 2", "Query 3","Query 4"]}
         onChange={handleOptionChange}
         selectedQuery={query}
       />
       <div className="buttons">
       
-      <CSVLink className="csv-button" data={csvData} headers={csvHeaders} filename={"data.csv"}>
-      <button className="export"><span><BiExport/></span>Export</button>
-      </CSVLink>
+      {buttonClicked && <CSVLink className="csv-button" data={csvData} headers={csvHeaders} filename={"data.csv"}>
+      <button className="export"><span><BiExport/></span>Export</button >
+      </CSVLink>}
       <button onClick={handleClick}>Run SQL</button>
       </div>
     </div>
