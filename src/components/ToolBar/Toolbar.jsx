@@ -1,10 +1,13 @@
-import React, { useRef } from "react";
+import React, { Suspense, useRef } from "react";
 import "./ToolBar.css";
 import { useStateContext } from "../../context/Context";
 import { CSVLink } from "react-csv";
 
 import { BiExport, BiImport } from "react-icons/bi";
 import CSVReader from "react-csv-reader";
+
+
+import Dropdown from "./Dropdown";
 
 const Toolbar = () => {
   
@@ -29,12 +32,14 @@ const Toolbar = () => {
         selectedQuery={query}
       />
       <div className="buttons">
+        
+
         {buttonClicked && (
           <CSVLink
-            className="csv-button"
-            data={csvData}
-            headers={csvHeaders}
-            filename={"data.csv"}
+          className="csv-button"
+          data={csvData}
+          headers={csvHeaders}
+          filename={"data.csv"}
           >
             <button style={{ backgroundColor: "#007efa" }} className="export">
               <span className="svgTool">
@@ -44,6 +49,7 @@ const Toolbar = () => {
             </button>
           </CSVLink>
         )}
+        
 
         <CSVReader
           ref={importButtonRef}
@@ -70,21 +76,5 @@ const Toolbar = () => {
   );
 };
 
-export const Dropdown = ({ options, selectedQuery, onChange }) => {
-  return (
-    <select
-      name="currency"
-      id="currency"
-      value={selectedQuery}
-      onChange={onChange}
-    >
-      {options.map((option) => (
-        <option value={option} key={option}>
-          {option}
-        </option>
-      ))}
-    </select>
-  );
-};
 
 export default Toolbar;

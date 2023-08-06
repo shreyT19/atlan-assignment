@@ -5,15 +5,22 @@ import { RiLayoutFill } from "react-icons/ri";
 
 import { useStateContext } from "../../context/Context";
 
-const EntitySchema = ({ heading, schemaData }) => {
-    const { handlePrintAllQueries,handlePrintSelectedQuery } = useStateContext();
+const EntitySchema = React.memo(({ heading, schemaData }) => {
+  const { handlePrintAllQueries, handlePrintSelectedQuery } = useStateContext();
+
   return (
     <div className="entitySchemaSection">
       <div className="layout">
         <span className="icon">
           <RiLayoutFill />
         </span>
-        <span className="value heading" onClick={()=>handlePrintAllQueries(heading)}>{heading}</span> <span>[-]</span>{" "}
+        <span
+          className="value heading"
+          onClick={() => handlePrintAllQueries(heading)}
+        >
+          {heading}
+        </span>{" "}
+        <span>[-]</span>{" "}
       </div>
       <ul>
         {Object.entries(schemaData[0]).map(([key, value], index) => {
@@ -26,7 +33,12 @@ const EntitySchema = ({ heading, schemaData }) => {
           return (
             <li className="schemaKeys" key={index}>
               <span className="arrow"></span>
-              <span onClick={()=>handlePrintSelectedQuery(key,heading)} className="value">{key}</span>
+              <span
+                onClick={() => handlePrintSelectedQuery(key, heading)}
+                className="value"
+              >
+                {key}
+              </span>
               <span className="type">[{val}]</span>
             </li>
           );
@@ -34,6 +46,6 @@ const EntitySchema = ({ heading, schemaData }) => {
       </ul>
     </div>
   );
-};
+});
 
 export default EntitySchema;

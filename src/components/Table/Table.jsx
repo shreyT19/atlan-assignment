@@ -2,12 +2,13 @@ import React from "react";
 import "./Table.css";
 import { useState } from "react";
 
-import { useStateContext } from "../../context/Context";
+
 import Pagination from "../Pagination/Pagination";
 
-const Table = ({ rows }) => {
+const Table = React.memo(({ rows }) => {
   // to keep track of the current page
   const [currentPage, setCurrentPage] = useState(1);
+  
 
   const rowsPerPage = 5;
 
@@ -51,6 +52,6 @@ const Table = ({ rows }) => {
       />
     </div>
   );
-};
+});
 
 export default Table;
