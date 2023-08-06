@@ -1,4 +1,4 @@
-import CodeCompiler from "./components/CodeCompiler/CodeCompiler";
+import CodeCompiler from "./Pages/CodeCompiler";
 function App() {
   return (
     <>

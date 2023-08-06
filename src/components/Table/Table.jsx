@@ -13,7 +13,7 @@ const Table = ({ rows }) => {
 
   const lastPostIndex = currentPage * rowsPerPage;
   const firstPostIndex = lastPostIndex - rowsPerPage;
-  const currentPosts = rows.slice(firstPostIndex, lastPostIndex);
+  const currentPosts = rows?.slice(firstPostIndex, lastPostIndex);
 
   return (
     <div>

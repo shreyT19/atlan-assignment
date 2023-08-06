@@ -1,9 +1,9 @@
-import { createContext, useState, useContext, useEffect } from "react";
+import { createContext, useState, useContext, useEffect, useRef } from "react";
 export const StateContext = createContext();
 
 //dummy data
 import mockData from "../assets/data.json";
-import answersData from "../assets/answers.json";
+// import answersData from "../assets/answers.json";
 
 export const AppProvider = ({ children }) => {
   // query is the name of the selected query in the dropdown
@@ -14,12 +14,17 @@ export const AppProvider = ({ children }) => {
   );
   // currentOutputQuery is the object of the selected query from the commands array of the answersData
   const [currentOutputQuery, setCurrentOutputQuery] = useState(
-    answersData.commands[0].output
+    // answersData.commands[0].output
+    mockData.commands[0].output
   );
   // buttonClicked is the boolean value to check if the run sql button is clicked or not
   const [buttonClicked, setButtonClicked] = useState(false);
 
+  // import button ref
+  const importButtonRef = useRef(null);
 
+  // state to store the imported data
+  const [importedData, setImportedData] = useState({});
 
   useEffect(() => {
     const ans = filteredOutputData(currentQuery);
@@ -54,9 +59,17 @@ export const AppProvider = ({ children }) => {
     setCurrentQuery(`SELECT ${property} FROM ${heading};`);
   };
 
-  //function to add pagination to the table data if it exceeds 5 rows
+  // function to handle the file load on import button
+  const handleFileLoad = (data) => {
+    const transposedData = transposeData(data);
 
-  
+    setImportedData(transposedData);
+  };
+
+  // function to handle the click of the import button
+  const handleImportNewFile = () => {
+    importButtonRef.current.click();
+  };
 
   return (
     <StateContext.Provider
@@ -72,7 +85,10 @@ export const AppProvider = ({ children }) => {
         setCurrentOutputQuery,
         handlePrintAllQueries,
         handlePrintSelectedQuery,
-
+        handleFileLoad,
+        handleImportNewFile,
+        importButtonRef,
+        importedData,
       }}
     >
       {children}
@@ -108,3 +124,26 @@ export const filteredOutputData = (currentQuery) => {
 
 //custom hook
 export const useStateContext = () => useContext(StateContext);
+
+// Function to transpose the data from row-wise to column-wise and format it dynamically
+const transposeData = (data) => {
+  if (!data || data.length === 0) return { output: [] };
+
+  const headers = Object.keys(data[0]);
+  const transposedData = [];
+
+  // Iterate over each row and transpose the data
+  for (let i = 0; i < data.length; i++) {
+    const rowData = {};
+
+    // Populate the rowData object with the transposed data
+    headers.forEach((header) => {
+      rowData[header] = data[i][header];
+    });
+
+    // Push the rowData object to the transposedData array
+    transposedData.push(rowData);
+  }
+
+  return { output: transposedData };
+};

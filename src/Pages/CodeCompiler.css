@@ -41,7 +41,7 @@ textarea:focus {
 .output {
   font-weight: bold;
   font-size: 20px;
-  
+
   margin-bottom: 20px;
 }
 .head {
@@ -67,17 +67,18 @@ textarea:focus {
   align-items: flex-start;
   width: 100%;
   overflow: auto;
-  height: 300px;
+  /* height: 300px; */
+  margin-bottom: 20px;
 }
-.flex2:nth-child(1){
+.flex2:nth-child(1) {
   margin-top: 20px;
 }
 
-.error::before{
-  content: '* ';
+.error::before {
+  content: "* ";
   color: red;
 }
-.error{
-  color:gray;
+.error {
+  color: gray;
   padding-bottom: 20px;
 }

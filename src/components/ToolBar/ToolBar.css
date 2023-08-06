@@ -35,4 +35,10 @@ button:hover {
 
 .csv-button {
   text-decoration: none;
+  display: flex;
+  margin-right: -10px;
+}
+
+.svgTool{
+  display: flex;
 }
