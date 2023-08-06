@@ -61,9 +61,7 @@ export const AppProvider = ({ children }) => {
 
   // function to handle the file load on import button
   const handleFileLoad = (data) => {
-    const transposedData = transposeData(data);
-
-    setImportedData(transposedData);
+    setImportedData(data);
   };
 
   // function to handle the click of the import button
@@ -124,26 +122,3 @@ export const filteredOutputData = (currentQuery) => {
 
 //custom hook
 export const useStateContext = () => useContext(StateContext);
-
-// Function to transpose the data from row-wise to column-wise and format it dynamically
-const transposeData = (data) => {
-  if (!data || data.length === 0) return { output: [] };
-
-  const headers = Object.keys(data[0]);
-  const transposedData = [];
-
-  // Iterate over each row and transpose the data
-  for (let i = 0; i < data.length; i++) {
-    const rowData = {};
-
-    // Populate the rowData object with the transposed data
-    headers.forEach((header) => {
-      rowData[header] = data[i][header];
-    });
-
-    // Push the rowData object to the transposedData array
-    transposedData.push(rowData);
-  }
-
-  return { output: transposedData };
-};

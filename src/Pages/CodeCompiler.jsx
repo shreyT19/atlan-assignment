@@ -65,11 +65,11 @@ const CodeCompiler = () => {
             {/* <Table rows={ordersData} /> */}
           </div>
 
-          {importedData?.output?.length > 0 && (
+          {importedData?.length > 0 && (
             <div className="flex2">
               <p className="output">Imported Data</p>
-              {importedData?.output?.length > 0 && (
-                <Table rows={importedData?.output} />
+              {importedData?.length > 0 && (
+                <Table rows={importedData} />
               )}
             </div>
           )}
