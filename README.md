@@ -55,3 +55,8 @@ The application utilizes the insights provided by the Web Vitals extension, offe
 
 The application undergoes evaluation through Lighthouse reports, a powerful tool that assesses web page performance, best practices, and SEO. These reports provide valuable insights into the application's performance characteristics and opportunities for improvement.
 <img width="1431" alt="Screenshot 2023-08-07 at 9 30 59 AM" src="https://github.com/shreyT19/atlan-assignment/assets/116892456/ad208dce-03b4-4909-be8d-b6dc2c79b953">
+
+
+- **As asked to can render a large amount of rows in your application without breaking the browser, or without crashing it.
+
+I think i have achieved the solution to the challenge of rendering a substantial number of rows in your application without browser hiccups by  integrate pagination and scrolling options into the table components, ensuring smooth performance and preventing any slowdowns or crashes.
