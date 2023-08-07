@@ -30,11 +30,11 @@ The application offers user-friendly error handling by providing a semicolon war
 
 ## Technology Stack
 
-### React
+- **React**
 
-### React-CSV library
+- **React-CSV library**
 
-## Performance Optimizations
+## Performance Optimizations Using Hooks
 
 - **React.memo()**
 - **Context API**
@@ -52,6 +52,4 @@ The application offers user-friendly error handling by providing a semicolon war
 <img width="1431" alt="Screenshot 2023-08-07 at 9 30 59 AM" src="https://github.com/shreyT19/atlan-assignment/assets/116892456/ad208dce-03b4-4909-be8d-b6dc2c79b953">
 
 
-- **As asked to can render a large amount of rows in the application without breaking the browser, or without crashing it.**
-
-I think i have achieved the solution to the challenge of rendering a substantial number of rows in the application by integrating pagination and scrolling options into the table components, ensuring smooth performance.
+- **As asked to can render a large amount of rows in the application without breaking the browser, or without crashing it. I think i have achieved the solution to the challenge of rendering a substantial number of rows in the application by integrating pagination and scrolling options into the table components, ensuring smooth performance.**
