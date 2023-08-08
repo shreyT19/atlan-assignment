@@ -42,7 +42,7 @@ https://github.com/shreyT19/atlan-assignment/assets/116892456/55f1fa6b-59a1-4fc2
 
 
 
-## Performance Optimizations Using Hooks
+## Performance Optimizations 
 
 - **React.memo()**
 - **Context API**
@@ -60,4 +60,4 @@ https://github.com/shreyT19/atlan-assignment/assets/116892456/55f1fa6b-59a1-4fc2
 <img width="1431" alt="Screenshot 2023-08-07 at 9 30 59 AM" src="https://github.com/shreyT19/atlan-assignment/assets/116892456/ad208dce-03b4-4909-be8d-b6dc2c79b953">
 
 
-- **As asked to can render a large amount of rows in the application without breaking the browser, or without crashing it. I think i have achieved the solution to the challenge of rendering a substantial number of rows in the application by integrating pagination and scrolling options into the table components, ensuring smooth performance.**
+- **As asked to render a large amount of rows in the application without breaking the browser, or without crashing it. I think i have achieved the solution to the challenge of rendering a substantial number of rows in the application by integrating pagination and scrolling options into the table components, ensuring smooth performance.**
