@@ -3,8 +3,8 @@ import React from "react";
 const Dropdown = React.memo(({ options, selectedQuery, onChange }) => {
   return (
     <select
-      name="currency"
-      id="currency"
+      name="query"
+      id="query"
       value={selectedQuery}
       onChange={onChange}
     >

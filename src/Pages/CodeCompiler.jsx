@@ -23,8 +23,11 @@ const CodeCompiler = () => {
     currentOutputQuery,
     importedData,
   } = useStateContext();
+
+  // semi colon error state
   const [error, setError] = React.useState(false);
 
+  // memoized components for performance optimization
   const memoizedEntitySchemas = useMemo(() => {
     console.log("memoizedEntitySchemas");
     return <Suspense fallback={<div>Loading Entity Schema...</div>}>

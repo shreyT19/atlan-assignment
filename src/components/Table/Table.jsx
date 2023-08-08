@@ -9,11 +9,13 @@ const Table = React.memo(({ rows }) => {
   // to keep track of the current page
   const [currentPage, setCurrentPage] = useState(1);
   
-
+// to shows 5 rows per page
   const rowsPerPage = 5;
-
+// to calculate the index of the last post
   const lastPostIndex = currentPage * rowsPerPage;
+  // to calculate the index of the first post
   const firstPostIndex = lastPostIndex - rowsPerPage;
+  // to get the current posts
   const currentPosts = rows?.slice(firstPostIndex, lastPostIndex);
 
   return (
