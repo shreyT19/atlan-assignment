@@ -8,12 +8,9 @@ const Pagination = ({
   setCurrentPage,
   rowsPerPage,
 }) => {
-  let pages = [];
+  // let pages = [];
   // to calculate the maximum number of pages
   const maximumPages = Math.ceil(totalRows / rowsPerPage);
-  for (let i = 1; i <= maximumPages; i++) {
-    pages.push(i);
-  }
 
   const handlePrevChange = () => {
     setCurrentPage((prev) => {
@@ -23,6 +20,8 @@ const Pagination = ({
       return prev;
     });
   };
+
+  
 
   const handleNextChange = () => {
     setCurrentPage((prev) => {
@@ -37,7 +36,7 @@ const Pagination = ({
       <span
         className="prev"
         onClick={handlePrevChange}
-        disabled={currentPage > 1}
+        
         style={currentPage > 1 ? { opacity: 1 } : { opacity: 0.25 }}
       >
         <GrFormPreviousLink className="svg" />
@@ -46,7 +45,7 @@ const Pagination = ({
       <span
         className="next"
         onClick={handleNextChange}
-        disabled={currentPage < maximumPages}
+        
         style={currentPage < maximumPages ? { opacity: 1 } : { opacity: 0.25 }}
       >
         <GrFormNextLink className="svg" />

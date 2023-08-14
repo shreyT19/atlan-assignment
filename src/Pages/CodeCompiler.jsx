@@ -1,4 +1,4 @@
-import React, { Suspense, lazy,useMemo } from "react";
+import React, { Suspense, lazy, useMemo } from "react";
 //components
 import Toolbar from "../components/ToolBar/Toolbar";
 //css
@@ -8,6 +8,7 @@ import dummyData from "../assets/data.json";
 import customersData from "../assets/customers.json";
 // import ordersData from "../assets/orders.json";
 import { useStateContext } from "../context/Context";
+import Search from "../components/Search/Search";
 
 const EntitySchema = lazy(() =>
   import("../components/EntitySchema/EntitySchema")
@@ -22,43 +23,71 @@ const CodeCompiler = () => {
     setCurrentQuery,
     currentOutputQuery,
     importedData,
+    setFilteredSearchCustomers,
+    setFilteredSearchOrders,
+    filteredSearchCustomers,
+    filteredSearchOrders,
+    filteredOutputQueryData,
+    setFilteredOutputQueryData,
   } = useStateContext();
 
-  // semi colon error state
+  const memoizedEntitySchemas = useMemo(() => {
+    return (
+      <Suspense fallback={<div>Loading Entity Schema...</div>}>
+        <div className="entityModels">
+          <EntitySchema heading="Customers" schemaData={dummyData?.orders} />
+          <EntitySchema heading="Orders" schemaData={dummyData?.customers} />
+        </div>
+      </Suspense>
+    );
+  }, [dummyData?.customers, dummyData?.orders]);
   const [error, setError] = React.useState(false);
 
-  // memoized components for performance optimization
-  const memoizedEntitySchemas = useMemo(() => {
-    console.log("memoizedEntitySchemas");
-    return <Suspense fallback={<div>Loading Entity Schema...</div>}>
-      <div className="entityModels">
-        <EntitySchema heading="Customers" schemaData={dummyData?.orders} />
-        <EntitySchema heading="Orders" schemaData={dummyData?.customers} />
-      </div>
-    </Suspense>
-}, [dummyData]);
 
   const memoizedTableData = useMemo(() => {
-    
-    return <Suspense fallback={<div>Loading Table Data...</div>}>
-      <div className="questionDataTable">
-        <div className="flex2">
-          <p className="output">Customers</p>
-          <Table rows={dummyData?.customers} />
-        </div>
-        <div className="flex2">
-          <p className="output">Orders</p>
-          <Table rows={dummyData?.orders} />
-        </div>
-        {importedData?.length > 0 && (
+    return (
+      <Suspense fallback={<div>Loading Table Data...</div>}>
+        <div className="questionDataTable">
           <div className="flex2">
-            <p className="output">Imported Data</p>
-            <Table rows={importedData} />
+            <p className="output">Customers</p>
+            <Search
+              data={dummyData?.customers}
+              setFiltered={setFilteredSearchCustomers}
+            />
+            {/* <Table rows={dummyData?.customers} /> */}
+            <Table
+              rows={
+                filteredSearchCustomers.length > 0
+                  ? filteredSearchCustomers
+                  : dummyData?.customers
+              }
+            />
           </div>
-        )}
-      </div>
-    </Suspense>
-}, [dummyData, importedData]);
+          <div className="flex2">
+            <p className="output">Orders</p>
+            <Search
+              data={dummyData?.orders}
+              setFiltered={setFilteredSearchOrders}
+            />
+            {/* <Table rows={dummyData?.orders} /> */}
+            <Table
+              rows={
+                filteredSearchOrders.length > 0
+                  ? filteredSearchOrders
+                  : dummyData?.orders
+              }
+            />
+          </div>
+          {importedData?.length > 0 && (
+            <div className="flex2">
+              <p className="output">Imported Data</p>
+              <Table rows={importedData} />
+            </div>
+          )}
+        </div>
+      </Suspense>
+    );
+  }, [dummyData, importedData, filteredSearchCustomers, filteredSearchOrders]);
 
   return (
     <div className="compiler">
@@ -83,7 +112,15 @@ const CodeCompiler = () => {
                 Please add a semicolon at the end of the query
               </p>
             )}
-            {buttonClicked && <Table rows={currentOutputQuery} />}
+            {buttonClicked && (
+              <div>
+                <Search
+                  data={currentOutputQuery}
+                  setFiltered={setFilteredOutputQueryData}
+                />
+                <Table rows={filteredOutputQueryData.length>0?filteredOutputQueryData:currentOutputQuery} />
+              </div>
+            )}
           </div>
         </div>
         {memoizedTableData}

@@ -26,6 +26,12 @@ export const AppProvider = ({ children }) => {
   // state to store the imported data
   const [importedData, setImportedData] = useState({});
 
+  const[filteredSearchOrders,setFilteredSearchOrders] = useState([])
+  const[filteredSearchCustomers,setFilteredSearchCustomers] = useState([])
+  const[filteredOutputQueryData,setFilteredOutputQueryData] = useState([])
+  
+
+
   useEffect(() => {
     const ans = filteredOutputData(currentQuery);
 
@@ -87,6 +93,12 @@ export const AppProvider = ({ children }) => {
         handleImportNewFile,
         importButtonRef,
         importedData,
+        setFilteredSearchCustomers,
+        setFilteredSearchOrders,
+        filteredSearchCustomers,
+        filteredSearchOrders,
+        filteredOutputQueryData,setFilteredOutputQueryData
+        
       }}
     >
       {children}
