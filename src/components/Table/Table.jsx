@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useMemo } from "react";
 import "./Table.css";
 import { useState } from "react";
 
@@ -8,16 +8,33 @@ const Table = React.memo(({ rows }) => {
   // to keep track of the current page
   const [currentPage, setCurrentPage] = useState(1);
 
-  // to shows 5 rows per page
-  const rowsPerPage = 5;
-  // to calculate the index of the last post
-  const lastPostIndex = currentPage * rowsPerPage;
-  // to calculate the index of the first post
-  const firstPostIndex = lastPostIndex - rowsPerPage;
-  // to get the current posts
-  const currentPosts = rows?.slice(firstPostIndex, lastPostIndex);
+  const[currentSort, setCurrentSort] = useState('')
+    
 
-  // console.log(currentPosts);
+  const memoizedSortValues = useMemo(()=>{
+    return rows?.sort((a,b)=>{
+      if(a[currentSort] < b[currentSort]){
+        return -1
+      }
+      if(a[currentSort] > b[currentSort]){
+        return 1
+      }
+      return 0
+      
+    })
+   
+  },[currentSort,rows])
+
+   // to shows 5 rows per page
+   const rowsPerPage = 5;
+   // to calculate the index of the last post
+   const lastPostIndex = currentPage * rowsPerPage;
+   // to calculate the index of the first post
+   const firstPostIndex = lastPostIndex - rowsPerPage;
+   // to get the current posts
+   let currentPosts = memoizedSortValues?.slice(firstPostIndex, lastPostIndex);
+
+  
 
   return (
     <div>
@@ -27,7 +44,7 @@ const Table = React.memo(({ rows }) => {
             {Object?.keys(currentPosts[0])?.map((keyName, index) => {
               // {Object?.keys(rows[0])?.map((keyName, index) => {
               return (
-                <th className="row" key={index}>
+                <th className="row" key={index} onClick={()=>setCurrentSort(keyName)}>
                   {keyName}
                 </th>
               );
